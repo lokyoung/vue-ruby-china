@@ -1,20 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <navbar></navbar>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import Navbar from './components/Navbar'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello,
+    Navbar
   }
 }
 </script>
+
+<style lang="sass">
+  @import './vendor/bootstrap.css'
+  @import './assets/stylesheets/app.scss'
+</style>
 
 <style>
 #app {
@@ -23,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
