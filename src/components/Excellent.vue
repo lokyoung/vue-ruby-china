@@ -1,14 +1,14 @@
 <template>
-  <div class="panel panel-default excellent-topics">
+  <div class="panel panel-default vr-panel">
     <div class="panel-heading">
       社区精华帖
     </div>
-    <div class="panel-body topics row">
+    <div class="panel-body row">
       <div class="col-md-6">
-        <Topic v-for="topic in oddTopics" v-bind:topic="topic"></Topic>
+        <topic v-for="topic in oddTopics" v-bind:topic="topic"></topic>
       </div>
       <div class="col-md-6">
-        <Topic v-for="topic in evenTopics" v-bind:topic="topic"></Topic>
+        <topic v-for="topic in evenTopics" v-bind:topic="topic"></topic>
       </div>
     </body>
   </div>
@@ -27,7 +27,7 @@ export default {
       evenTopics: []
     }
   },
-  created: function () {
+  created () {
     this.initData().then(topics => {
       this.oddTopics = topics.filter((v, i) => i % 2)
       this.evenTopics = topics.filter((v, i) => !(i % 2))
@@ -45,17 +45,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .excellent-topics {
-    text-align: left;
-
-    .panel-heading {
-      background: #fafafa;
-      padding: 6px 15px;
-      border-bottom-color: #eee;
-      color: #777;
-    }
-  }
-
-</style>

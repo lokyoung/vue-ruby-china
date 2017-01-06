@@ -2,8 +2,8 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li class="rc-navbar-brand"><a><b>Ruby</b> China</a></li>
-        <li><a>社区</a></li>
+        <li class="rc-navbar-brand"><router-link :to="{name: 'index'}"><b>Ruby</b> China</router-link></li>
+        <li><router-link :to="{name: 'topics'}">社区</router-link></li>
         <li><a>Wiki</a></li>
         <li><a>酷站</a></li>
         <li><a>Homeland</a></li>
@@ -16,7 +16,6 @@
 
 <script>
 export default {
-  name: 'navbar',
   data () {
     return {
     }
@@ -25,11 +24,6 @@ export default {
 </script>
 
 <style scoped>
-.uk-navbar {
-  background-color: #FFF;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
-}
-
 .rc-navbar-brand b{
   color: #EB5424;
 }

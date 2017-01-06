@@ -2,6 +2,17 @@
   background: #e9eaed;
 }
 
+.vr-panel {
+  text-align: left;
+
+  .panel-heading {
+    background: #fafafa;
+    padding: 6px 15px;
+    border-bottom-color: #eee;
+    color: #777;
+  }
+}
+
 .topic {
   min-height: 68px;
   border-bottom: 1px solid #F0F0F0;
@@ -62,4 +73,8 @@
       color: inherit;
     }
   }
+}
+
+.item-list {
+  padding: 0 15px;
 }
