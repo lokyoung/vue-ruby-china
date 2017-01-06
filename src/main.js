@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 
+Vue.use(require('vue-resource'))
+Vue.http.options.root = 'https://ruby-china.org/api/v3'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

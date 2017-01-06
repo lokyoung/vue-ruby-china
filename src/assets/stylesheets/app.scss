@@ -1,0 +1,65 @@
+.page {
+  background: #e9eaed;
+}
+
+.topic {
+  min-height: 68px;
+  border-bottom: 1px solid #F0F0F0;
+  padding: 10px 15px;
+  margin: 0 -15px;
+  vertical-align: top;
+
+  a {
+    text-decoration: none;
+  }
+
+  .avatar {
+    text-align: center;
+
+    > img {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      border-radius: 120px;
+    }
+  }
+
+  .count {
+    padding-top: 15px;
+
+    > a {
+      background-color: #CFD3E6;
+      color: #FFF;
+      line-height: 11px;
+      text-align: center;
+      border-radius: 80px;
+      padding: 3px 8px 3px 8px;
+      display: inline-block;
+    }
+  }
+
+  .title {
+    font-size: 15px;
+
+    .node {
+      color: #777;
+      margin-right: 3px;
+    }
+
+    a {
+      color: #222;
+      font-weight: 400;
+      line-height: 30px;
+    }
+  }
+
+  .info {
+    color: #ABA8A6;
+    font-size: 12px;
+    margin-top: 0;
+
+    a {
+      color: inherit;
+    }
+  }
+}

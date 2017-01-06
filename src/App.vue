@@ -1,18 +1,24 @@
 <template>
-  <div id="app">
+  <div class="page" id="app">
     <navbar></navbar>
+    <div class="container">
+      <announce></announce>
+      <excellent></excellent>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
 import Navbar from './components/Navbar'
+import Announce from './components/Announce'
+import Excellent from './components/Excellent'
 
 export default {
   name: 'app',
   components: {
-    Hello,
-    Navbar
+    Navbar,
+    Announce,
+    Excellent
   }
 }
 </script>
