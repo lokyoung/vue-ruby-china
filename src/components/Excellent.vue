@@ -10,7 +10,7 @@
       <div class="col-md-6">
         <topic v-for="topic in evenTopics" v-bind:topic="topic"></topic>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 

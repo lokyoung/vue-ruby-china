@@ -9,6 +9,9 @@
           <span class="node">{{ topic.node_name }}</span>
           {{ topic.title }}
         </a>
+        <span v-if="topic.excellent === 1">
+          <i class="glyphicon glyphicon-star-empty" style="color: #EB5424;"></i>
+        </span>
       </div>
       <div class="info">
         <a>{{ topic.user.login }}</a>
@@ -17,6 +20,10 @@
           <a>{{ topic.last_reply_user_login }}</a>
           replied at
           <abbr>{{ timeAgo(topic.replied_at) }}</abbr>
+        </span>
+        <span v-else>
+          • Created at
+          <abbr>{{ timeAgo(topic.created_at) }}</abbr>
         </span>
       </div>
     </div>
