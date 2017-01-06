@@ -5,8 +5,8 @@
     </div>
     <div class="infos media-body">
       <div class="title media-heading">
-        <a href="#">
-          <span class="node">{{ topic.node_name }}</span>
+        <span class="node">{{ topic.node_name }}</span>
+        <a :href="'/topics/' + topic.id">
           {{ topic.title }}
         </a>
         <span v-if="topic.excellent === 1">

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default">
+  <nav class="vr-nav navbar navbar-default">
     <div class="container">
       <ul class="nav navbar-nav">
         <li class="rc-navbar-brand"><router-link :to="{name: 'index'}"><b>Ruby</b> China</router-link></li>
@@ -23,8 +23,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.rc-navbar-brand b{
-  color: #EB5424;
-}
+<style lang="scss">
 </style>

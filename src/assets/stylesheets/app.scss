@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'markdown';
+
 .page {
   background: #e9eaed;
 }
@@ -13,6 +16,17 @@
   }
 }
 
+.avatar {
+  text-align: center;
+
+  img {
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+    border-radius: 120px;
+  }
+}
+
 .topic {
   min-height: 68px;
   border-bottom: 1px solid #F0F0F0;
@@ -24,16 +38,6 @@
     text-decoration: none;
   }
 
-  .avatar {
-    text-align: center;
-
-    > img {
-      width: 48px;
-      height: 48px;
-      vertical-align: middle;
-      border-radius: 120px;
-    }
-  }
 
   .count {
     padding-top: 15px;
@@ -85,4 +89,16 @@
     font-weight: 400;
     line-height: 20px;
   }
+}
+
+.vr-nav {
+  background-color: #fff;
+}
+
+.rc-navbar-brand b{
+  color: $vr-orange;
+}
+
+.router-link-active {
+  color: $vr-orange;
 }
