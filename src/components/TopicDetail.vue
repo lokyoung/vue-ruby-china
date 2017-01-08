@@ -11,12 +11,12 @@
             <div class="info">
               <a class="user-name" href="">{{ topic.user.login }}</a>
               • Created at
-              <abbr>{{ timeAgo(topic.created_at) }}</abbr>
+              <abbr>{{ topic.created_at | timeAgo }}</abbr>
               <span v-if="topic.last_reply_user_login">
                 • Last by
                 <a class="user-name">{{ topic.last_reply_user_login }}</a>
                 replied at
-                <abbr>{{ timeAgo(topic.replied_at) }}</abbr>
+                <abbr>{{ topic.replied_at | timeAgo }}</abbr>
               </span>
               • {{ topic.hits }} hits
             </div>
@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import moment from 'moment'
 import Resources from './Resources'
 import Reply from './Reply'
+import api from '../api'
 
 export default {
   components: {
@@ -64,34 +64,13 @@ export default {
     }
   },
   created () {
-    this.fetchTopic().then(topic => {
+    api.getTopic(this.$route.params.id).then(topic => {
       this.topic = topic
       this.isLoading = false
     })
-    this.fetchReplies().then(replies => {
+    api.getReplies(this.$route.params.id).then(replies => {
       this.replies = replies
     })
-  },
-  methods: {
-    fetchTopic () {
-      return this.$http.get(`topics/${this.$route.params.id}`, { headers: { Accept: 'application/json' } })
-        .then(res => {
-          return res.body.topic
-        }, err => {
-          return err
-        })
-    },
-    fetchReplies () {
-      return this.$http.get(`topics/${this.$route.params.id}/replies`, { headers: { Accept: 'application/json' } })
-        .then(res => {
-          return res.body.replies
-        }, err => {
-          return err
-        })
-    },
-    timeAgo: function (time) {
-      return moment(time).fromNow()
-    }
   }
 }
 </script>

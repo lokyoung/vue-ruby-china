@@ -4,9 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
 import { timeAgo } from './filters/timeAgo.js'
+import Vuex from 'vuex'
 
-Vue.use(require('vue-resource'))
-Vue.http.options.root = 'https://ruby-china.org/api/v3'
+Vue.use(Vuex)
 
 Vue.filter('timeAgo', timeAgo)
 

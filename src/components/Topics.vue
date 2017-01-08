@@ -37,6 +37,7 @@
 <script>
 import Topic from './Topic'
 import Resources from './Resources'
+import api from '../api'
 
 export default {
   components: {
@@ -49,19 +50,9 @@ export default {
     }
   },
   created () {
-    this.initData().then(topics => {
+    api.getTopics().then(topics => {
       this.topics = topics
     })
-  },
-  methods: {
-    initData () {
-      return this.$http.get('topics/', { headers: { Accept: 'application/json' } })
-        .then(res => {
-          return res.body.topics
-        }, err => {
-          return err
-        })
-    }
   }
 }
 </script>
