@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
+import { timeAgo } from './filters/timeAgo.js'
 
 Vue.use(require('vue-resource'))
 Vue.http.options.root = 'https://ruby-china.org/api/v3'
+
+Vue.filter('timeAgo', timeAgo)
 
 /* eslint-disable no-new */
 new Vue({

@@ -12,7 +12,7 @@ export default new VueRouter({
   routes: [
     { path: '/', component: Index, name: 'index' },
     { path: '/topics', component: Topics, name: 'topics' },
-    { path: '/topics/:id', component: TopicDetail }
+    { path: '/topics/:id', component: TopicDetail, name: 'topic' }
   ],
   saveScrollPosition: true
 })

@@ -14,10 +14,11 @@
               <abbr>{{ timeAgo(topic.created_at) }}</abbr>
               <span v-if="topic.last_reply_user_login">
                 • Last by
-                <a>{{ topic.last_reply_user_login }}</a>
+                <a class="user-name">{{ topic.last_reply_user_login }}</a>
                 replied at
                 <abbr>{{ timeAgo(topic.replied_at) }}</abbr>
               </span>
+              • {{ topic.hits }} hits
             </div>
           </div>
           <div class="avatar media-right">
@@ -30,6 +31,14 @@
           <span v-html="topic.body_html"></span>
         </div>
       </div>
+      <div class="panel panel-default vr-panel">
+        <div class="panel-heading">
+          共收到 <b>{{ replies.length }} 条回复</b>
+        </div>
+        <div class="replies panel-body">
+          <reply v-for="reply in replies" v-bind:reply="reply"></reply>
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
       <resources></resources>
@@ -40,28 +49,42 @@
 <script>
 import moment from 'moment'
 import Resources from './Resources'
+import Reply from './Reply'
 
 export default {
   components: {
-    Resources
+    Resources,
+    Reply
   },
   data () {
     return {
       topic: null,
+      replies: [],
       isLoading: true
     }
   },
   created () {
-    this.initData().then(topic => {
+    this.fetchTopic().then(topic => {
       this.topic = topic
       this.isLoading = false
     })
+    this.fetchReplies().then(replies => {
+      this.replies = replies
+    })
   },
   methods: {
-    initData () {
+    fetchTopic () {
       return this.$http.get(`topics/${this.$route.params.id}`, { headers: { Accept: 'application/json' } })
         .then(res => {
           return res.body.topic
+        }, err => {
+          return err
+        })
+    },
+    fetchReplies () {
+      return this.$http.get(`topics/${this.$route.params.id}/replies`, { headers: { Accept: 'application/json' } })
+        .then(res => {
+          return res.body.replies
         }, err => {
           return err
         })
@@ -107,5 +130,10 @@ export default {
       font-size: 13px;
     }
   }
+}
+
+.replies {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 </style>

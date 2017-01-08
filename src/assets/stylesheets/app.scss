@@ -92,13 +92,24 @@
 }
 
 .vr-nav {
-  background-color: #fff;
+  background-color: $vr-white;
 }
 
-.rc-navbar-brand b{
+.rc-navbar-brand b {
   color: $vr-orange;
 }
 
 .router-link-active {
-  color: $vr-orange;
+  color: $vr-orange !important;
+  border-bottom: 3px solid $vr-orange;
+}
+
+.root-router {
+  color: $vr-gray !important;
+  border-bottom: 3px solid $vr-white;
+  font-weight: bold;
+}
+
+.pagination {
+  margin: 0 0;
 }
