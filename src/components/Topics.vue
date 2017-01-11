@@ -6,25 +6,7 @@
           <topic v-for="topic in topics" v-bind:topic="topic"></topic>
         </div>
         <div class="panel-footer">
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <paginator :pageCount="20" :clickHandler="clickHandler"></paginator>
         </div>
       </div>
     </div>
@@ -37,12 +19,14 @@
 <script>
 import Topic from './Topic'
 import Resources from './Resources'
+import Paginator from './Paginator'
 import api from '../api'
 
 export default {
   components: {
     Topic,
-    Resources
+    Resources,
+    Paginator
   },
   data () {
     return {
@@ -53,6 +37,13 @@ export default {
     api.getTopics().then(topics => {
       this.topics = topics
     })
+  },
+  methods: {
+    clickHandler (pageNum) {
+      api.getTopics({offset: (pageNum - 1) * 20}).then(topics => {
+        this.topics = topics
+      })
+    }
   }
 }
 </script>
