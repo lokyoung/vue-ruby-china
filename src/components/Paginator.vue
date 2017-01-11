@@ -1,21 +1,19 @@
 <template>
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li>
-        <a aria-label="Previous" @click="prevPage()">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li v-for="page in pages" v-bind:class="{ active: page.selected }">
-        <a @click="handlePageSelected(page.index)">{{ page.content }}</a>
-      </li>
-      <li>
-        <a aria-label="Next" @click="nextPage()">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <ul class="pagination">
+    <li>
+      <a @click="prevPage()">
+        {{ prevText }}
+      </a>
+    </li>
+    <li v-for="page in pages" :class="{ active: page.selected, disabled: page.disabled }">
+      <a @click="handlePageSelected(page.index)">{{ page.content }}</a>
+    </li>
+    <li>
+      <a @click="nextPage()">
+        {{ nextText }}
+      </a>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -31,6 +29,14 @@ export default {
     pageRange: {
       type: Number,
       default: 3
+    },
+    prevText: {
+      type: String,
+      default: 'Prev'
+    },
+    nextText: {
+      type: String,
+      default: 'Next'
     }
   },
   data () {
@@ -75,7 +81,8 @@ export default {
           }
 
           let breakView = {
-            content: '...'
+            content: '...',
+            disabled: true
           }
 
           if ((this.selected - leftPart) > 1 && items[1] !== breakView) {
