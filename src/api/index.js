@@ -13,8 +13,8 @@ export default {
         return err
       })
   },
-  getTopics () {
-    return Vue.http.get('topics/', { headers: { Accept: 'application/json' } })
+  getTopics (params) {
+    return Vue.http.get('topics/', { params: params, headers: { Accept: 'application/json' } })
       .then(res => {
         return res.body.topics
       }, err => {

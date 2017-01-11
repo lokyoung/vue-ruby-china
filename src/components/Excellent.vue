@@ -16,6 +16,7 @@
 
 <script>
 import Topic from './Topic'
+import api from '../api'
 
 export default {
   components: {
@@ -28,20 +29,10 @@ export default {
     }
   },
   created () {
-    this.initData().then(topics => {
+    api.getTopics({type: 'excellent'}).then(topics => {
       this.oddTopics = topics.filter((v, i) => i % 2)
       this.evenTopics = topics.filter((v, i) => !(i % 2))
     })
-  },
-  methods: {
-    initData: function () {
-      return this.$http.get('topics/', { params: { type: 'excellent' }, headers: { Accept: 'application/json' } })
-        .then(res => {
-          return res.body.topics
-        }, error => {
-          console.log(error)
-        })
-    }
   }
 }
 </script>
