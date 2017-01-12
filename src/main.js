@@ -4,11 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
 import { timeAgo } from './filters/timeAgo.js'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
+import paginate from 'vuejs-paginate'
 
 Vue.filter('timeAgo', timeAgo)
+
+// Vue.use(require('vuejs-paginate'))
+Vue.use(paginate)
 
 /* eslint-disable no-new */
 new Vue({

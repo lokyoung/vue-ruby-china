@@ -1,5 +1,5 @@
 <template>
-  <ul class="pagination">
+  <ul :class="containerClass">
     <li>
       <a @click="prevPage()">
         {{ prevText }}
@@ -37,6 +37,9 @@ export default {
     nextText: {
       type: String,
       default: 'Next'
+    },
+    containerClass: {
+      type: String
     }
   },
   data () {

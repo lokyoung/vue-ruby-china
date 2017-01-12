@@ -6,7 +6,14 @@
           <topic v-for="topic in topics" v-bind:topic="topic"></topic>
         </div>
         <div class="panel-footer">
-          <paginator :pageCount="20" :clickHandler="clickHandler"></paginator>
+          <paginate
+            :pageCount="20"
+            :clickHandler="clickHandler"
+            :prevText="'上一页'"
+            :nextText="'下一页'"
+            :containerClass="'pagination'"
+            >
+          </paginate>
         </div>
       </div>
     </div>
@@ -19,14 +26,12 @@
 <script>
 import Topic from './Topic'
 import Resources from './Resources'
-import Paginator from './Paginator'
 import api from '../api'
 
 export default {
   components: {
     Topic,
-    Resources,
-    Paginator
+    Resources
   },
   data () {
     return {

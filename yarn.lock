@@ -5646,6 +5646,10 @@ vue@^2.1.0:
   version "2.1.8"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.1.8.tgz#ae30aa86024fccf5535292ce414e7b4c221a1756"
 
+vuejs-paginate@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/vuejs-paginate/-/vuejs-paginate-0.1.0.tgz#e0fdb50a1b6c695e2385ab5b2315b8ff3e4648e7"
+
 watchpack@^0.2.1:
   version "0.2.9"
   resolved "http://registry.npm.taobao.org/watchpack/download/watchpack-0.2.9.tgz#62eaa4ab5e5ba35fdfc018275626e3c0f5e3fb0b"
