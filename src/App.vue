@@ -19,7 +19,6 @@ export default {
 </script>
 
 <style lang="sass">
-  @import './vendor/bootstrap.css'
   @import './assets/stylesheets/app.scss'
 </style>
 
